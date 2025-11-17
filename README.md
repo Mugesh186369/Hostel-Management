@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🏠 Hostel Complaint Management System
 
 A complete, production-ready cloud-based hostel complaint management system built with **Express.js**, **MongoDB**, and **Socket.io** for real-time updates.
@@ -266,3 +267,6 @@ Your Name - [@yourusername](https://github.com/yourusername)
 ---
 
 **Built with ❤️ for efficient hostel management**
+=======
+# Hostel-Management
+>>>>>>> 43ac45fe5ddc191d91c4e70abb40841296eccb6b
