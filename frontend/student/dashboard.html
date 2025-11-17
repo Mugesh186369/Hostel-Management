@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Hostel Complaint System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <i class="fas fa-building"></i>
+                    <span>Hostel Complaint System</span>
+                </div>
+                <div class="nav-user">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userName">Loading...</span>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <a href="dashboard.html" class="menu-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="tracker.html" class="menu-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Complaint Tracker</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="page-header">
+                    <h1><i class="fas fa-clipboard-list"></i> Register New Complaint</h1>
+                    <p>Report maintenance issues or facility problems</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="complaint-form-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-plus-circle"></i> Submit Complaint</h2>
+                        </div>
+                        <form id="complaintForm" class="complaint-form">
+                            <div class="form-group">
+                                <label for="roomNumber">
+                                    <i class="fas fa-door-open"></i>
+                                    Room Number
+                                </label>
+                                <input type="text" id="roomNumber" name="roomNumber" required 
+                                       placeholder="e.g., A-101">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="category">
+                                    <i class="fas fa-tags"></i>
+                                    Category
+                                </label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select a category</option>
+                                    <option value="plumbing">🔧 Plumbing</option>
+                                    <option value="electrical">⚡ Electrical</option>
+                                    <option value="furniture">🪑 Furniture</option>
+                                    <option value="cleaning">🧹 Cleaning</option>
+                                    <option value="internet">🌐 Internet/WiFi</option>
+                                    <option value="security">🔒 Security</option>
+                                    <option value="other">❓ Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">
+                                    <i class="fas fa-align-left"></i>
+                                    Complaint Description
+                                </label>
+                                <textarea id="description" name="description" rows="5" required 
+                                          placeholder="Describe your complaint in detail..."></textarea>
+                            </div>
+
+                            <div id="formErrorMessage" class="error-message"></div>
+                            <div id="formSuccessMessage" class="success-message"></div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Complaint
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="complaint-history-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-history"></i> Complaint History</h2>
+                            <button class="refresh-btn" onclick="loadComplaints()">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        <div id="complaintsList" class="complaints-list">
+                            <div class="loading-spinner">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p>Loading complaints...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/socket.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/student.js"></script>
+</body>
+</html>

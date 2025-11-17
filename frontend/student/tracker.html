@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Tracker - Hostel Complaint System</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <i class="fas fa-building"></i>
+                    <span>Hostel Complaint System</span>
+                </div>
+                <div class="nav-user">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userName">Loading...</span>
+                    </div>
+                    <button class="logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="sidebar">
+                <div class="sidebar-menu">
+                    <a href="dashboard.html" class="menu-item">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="tracker.html" class="menu-item active">
+                        <i class="fas fa-tasks"></i>
+                        <span>Complaint Tracker</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="page-header">
+                    <h1><i class="fas fa-tasks"></i> Live Complaint Tracker</h1>
+                    <p>Real-time status updates on your complaints</p>
+                </div>
+
+                <div class="tracker-content">
+                    <div id="trackerList" class="tracker-list">
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Loading tracker...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/socket.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/student.js"></script>
+</body>
+</html>
